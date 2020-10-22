@@ -10,45 +10,47 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        ScrollView() {
-        VStack() {
-            Text("About Me!")
-                .font(.largeTitle)
-                .padding(.top)
-            // IMAGE OF YOURSELF GOES HERE
+        NavigationView() {
             
-            Text("My name is Abdul Khan. I was born in Islamabad, Pakistan. Here is the location of Islamabad in Asia:")
-                .padding([.top, .bottom, .trailing])
+        List {
             
-            HStack() {
+            // To go to the About Me page
+            NavigationLink(destination: AboutMeView()) {
+                HStack() {
                 
-            // IMAGE OF PAKISTAN
-            Image("Pakistan")
-                .resizable()
-                .scaledToFit()
-                .padding(.horizontal)
-        
-            }
-                
-            Text("However, I moved to Calgary, Canada when I was a year old. While growing up in Canada, I loved to spend my time doing two things: Playing video games and soccer. I would always meet up with my friends and we would do just those two activities the entire day. Ontop of that, I took part of so many soccer clubs and teams when I was young.")
-                .padding(.all)
-            
-            Image("Video games")
-                .resizable()
-                .scaledToFit()
-                .padding(.all)
-            
-            Text("One of my favourite soccer players growing up was Messi. Back then he was considered a 'legend' and was in his prime. Millions of people would always watch everygame he played and he never ceased to amaze anyone.")
-                .padding(.horizontal)
-            
-                // IMAGE OF MESSI
-                Image("Messi")
+                // Image for About Me link
+                Image("Video games")
                     .resizable()
-                    .scaledToFit()
-                    .padding(.all)
-            
+                    .frame(width: 75.0, height: 50.0)
+                    
+                Text("About Me!")
+                    .font(.title)
+                    .fontWeight(.medium)
+
+                }
             }
+            
+            // To go to the Things I Like page
+            NavigationLink(destination: ThingsImportantToMeView()) {
+                
+                HStack {
+                    
+                // Image for Things I Like link
+                Image("Pizza")
+                    .resizable()
+                    .frame(width: 75.0, height: 50.0)
+                    
+                Text("Things I Like")
+                    .font(.title)
+                    .fontWeight(.medium)
+                    
+                }
+            }
+        }
         
+        // Title for Navigation
+        .navigationBarTitle("Favourite Things")
+            
         }
     }
 }
